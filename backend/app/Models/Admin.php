@@ -6,9 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-use Illuminate\Database\Eloquent\Relations\belongsToMany;
 
-class User extends Authenticatable implements JWTSubject
+class Admin extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -16,8 +15,6 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'email',
         'password',
-        'gender',
-        'blood_type',
     ];
 
     public function getJWTIdentifier() {
@@ -26,11 +23,6 @@ class User extends Authenticatable implements JWTSubject
 
     public function getJWTCustomClaims() {
         return [];
-    }
-
-    public function addCertificate(): belongsToMany
-    {
-        return $this->belongsToMany(user::class, 'users_certificate', 'user_id', 'certificate_id');
     }
 
     protected $hidden = [
