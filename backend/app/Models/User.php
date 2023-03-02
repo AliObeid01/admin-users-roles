@@ -21,7 +21,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'gender',
+        'blood_type',
     ];
+
+    public function addCertificate(): belongsToMany
+    {
+        return $this->belongsToMany(user::class, 'users_certificate', 'user_id', 'certificate_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
