@@ -61,5 +61,13 @@ class UserController extends Controller
             'user'=>auth()->User()
         ]);
     }
+    
+    //logout function to delete the token and logout from the system
+    //return logout message
+    public function logout() {
+        auth()->logout();
+        return response()->json(['message' => 'User successfully signed out']);
+    }
+
 
 }
