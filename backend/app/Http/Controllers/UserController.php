@@ -9,7 +9,8 @@ use Validator;
 
 class UserController extends Controller
 {
-
+    //register function with validator on the input user
+    //return the user information
     public function register(Request $request) {
         
         $validator = Validator::make($request->all(), [

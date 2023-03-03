@@ -9,7 +9,8 @@ use Validator;
 
 class AdminController extends Controller
 {
-
+    //getUsers function to get all the users
+    //return the users information
     public function getUsers() {
 
        $users= user::all()->sortBy('name');
@@ -19,5 +20,7 @@ class AdminController extends Controller
           "data" => $users
        ]);
     }
+
+
 
 }
