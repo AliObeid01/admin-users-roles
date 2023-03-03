@@ -13,6 +13,7 @@ Route::group(["prefix"=> "user"], function(){
         Route::post('/update_profile', [UserController::class, 'updateProfile']);
         Route::post('/attach_certificate', [UserController::class, 'attachCertificate']);
         Route::post('/remove_certificate', [UserController::class, 'removeCertificate']);
+        Route::get('/user_certificates', [UserController::class, 'getCertificates']);
         Route::get('/certificates_report', [AdminController::class, 'certificatesReport']);
         Route::get('/logout', [UserController::class, 'logout']);
     });
