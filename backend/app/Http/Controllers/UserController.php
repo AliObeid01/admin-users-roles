@@ -10,24 +10,6 @@ use Validator;
 class UserController extends Controller
 {
 
-    //login function with validator on the user input
-    //return the created token
-    public function login(Request $request){
-
-    	$validator = Validator::make($request->all(), [
-            'email' => 'required|email',
-            'password' => 'required|string',
-        ]);
-        if ($validator->fails()) {
-            return response()->json(['message' => 'Please fill all fields'], 401);
-        }
-        if (! $token = auth()->attempt($validator->validated())) {
-            return response()->json(['message' => 'Incorrect email or password'], 401);
-        }
-        
-        return $this->respondWithToken($token);
-    }
-
     public function register(Request $request) {
         
         $validator = Validator::make($request->all(), [
@@ -51,16 +33,27 @@ class UserController extends Controller
         ], 201);
     }
 
-    //logout function to delete the token and logout from the system
-    //return logout message
-    public function logout() {
-        auth()->logout();
-        return response()->json(['message' => 'User successfully signed out']);
+    //login function with validator on the user input
+    //return the created token
+    public function login(Request $request){
+
+    	$validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|string',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['message' => 'Please fill all fields'], 401);
+        }
+        if (! $token = auth()->attempt($validator->validated())) {
+            return response()->json(['message' => 'Incorrect email or password'], 401);
+        }
+        
+        return $this->respondWithToken($token);
     }
 
     //function to return the user info with the created token
-    protected function respondWithToken($token)
-    {
+    protected function respondWithToken($token){
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
