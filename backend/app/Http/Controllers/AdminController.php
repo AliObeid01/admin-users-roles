@@ -36,7 +36,7 @@ class AdminController extends Controller
                     
         return response()->json([
             'message' => 'Certrificate successfully added',
-            'user' => $user
+            'certificate' => $certificate
         ], 201);
      }
 
