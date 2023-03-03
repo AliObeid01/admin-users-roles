@@ -8,6 +8,7 @@ Route::group(["prefix"=> "user"], function(){
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/users', [AdminController::class, 'getUsers']);
+        Route::post('/approve_user', [AdminController::class, 'approveUser']);
         Route::post('/add_certificate', [AdminController::class, 'addCertificate']);
         Route::get('/logout', [UserController::class, 'logout']);
     });
