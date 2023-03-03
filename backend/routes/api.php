@@ -10,6 +10,7 @@ Route::group(["prefix"=> "user"], function(){
         Route::get('/users', [AdminController::class, 'getUsers']);
         Route::post('/approve_user', [AdminController::class, 'approveUser']);
         Route::post('/add_certificate', [AdminController::class, 'addCertificate']);
+        Route::post('/update_profile', [AdminController::class, 'updateProfile']);
         Route::get('/logout', [UserController::class, 'logout']);
     });
 
