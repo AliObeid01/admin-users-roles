@@ -7,7 +7,7 @@ use App\Http\Controllers\AdminController;
 Route::group(["prefix"=> "user"], function(){
 
     Route::group(['middleware' => 'auth:api'], function () {
-        
+        Route::get('/users', [AdminController::class, 'getUsers']);
         Route::get('/logout', [UserController::class, 'logout']);
     });
 
