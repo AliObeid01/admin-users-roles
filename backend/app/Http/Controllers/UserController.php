@@ -108,7 +108,7 @@ class UserController extends Controller
     public function removeCertificate(Request $request) {
         $id = Auth::id();
         $user = user::find($id);
-        $user->userCertificates()->detach($request->favorite_id);
+        $user->userCertificates()->detach($request->certificate_id);
 
         return response()->json([
             "status" => "Success",

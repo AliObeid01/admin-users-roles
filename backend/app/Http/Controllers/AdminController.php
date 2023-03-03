@@ -61,5 +61,16 @@ class AdminController extends Controller
         ], 201);
      }
 
+    //certificatesReport function to get Certificates with number of users per certificate
+    //return the report information
+    public function certificatesReport (Request $request) {
+
+        return $certificates->userCertificates()->get();
+                    
+        return response()->json([
+            'message' => 'Certrificate successfully added',
+            'certificate' => $certificates
+        ], 201);
+     }
 
 }
