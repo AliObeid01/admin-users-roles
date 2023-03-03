@@ -1,14 +1,15 @@
 <?php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
-Route::group(["prefix"=> "v1"], function(){
+Route::group(["prefix"=> "user"], function(){
 
     Route::group(['middleware' => 'auth:api'], function () {
-        Route::post('/logout', [AuthController::class, 'logout']);
+        Route::get('/logout', [UserController::class, 'logout']);
     });
 
-    Route::post('/Admin', [AdminController::class, 'Adminlogin']);
+    Route::post('/register', [UserController::class, 'register']);
+    Route::post('/login', [UserController::class, 'login']);
 
 });

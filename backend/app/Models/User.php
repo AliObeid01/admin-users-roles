@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\belongsToMany;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory, Notifiable;
 
     protected $fillable = [
         'name',
@@ -18,6 +18,7 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'gender',
         'blood_type',
+        'type',
     ];
 
     public function getJWTIdentifier() {

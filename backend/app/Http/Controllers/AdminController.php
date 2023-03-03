@@ -22,10 +22,30 @@ class AdminController extends Controller
             return response()->json(['message' => 'Please fill all fields'], 401);
         }
         if (! $token = auth()->attempt($validator->validated())) {
-            return response()->json(['message' => 'Incorrect email or pasword'], 401);
+            return response()->json(['message' => 'Incorrect email or password'], 401);
         }
         
         return $this->respondWithToken($token);
+    }
+
+    public function register(Request $request) {
+        
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|between:2,100',
+            'email' => 'required|string|email|max:100|unique:users',
+            'password' => 'required|string|',
+        ]);
+        if($validator->stopOnFirstFailure()->fails()){
+            return response()->json($validator->errors(), 401);
+        }
+        $user = Admin::create(array_merge(
+                    $validator->validated(),
+                    ['password' => bcrypt($request->password)],
+                ));
+        return response()->json([
+            'message' => 'Admin successfully registered',
+            'user' => $user
+        ], 201);
     }
 
     //logout function to delete the token and logout from the system
