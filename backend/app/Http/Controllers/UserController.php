@@ -72,7 +72,7 @@ class UserController extends Controller
         $user = user::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->blood_type = $request->blood_type;
 
         if($user->save()){
