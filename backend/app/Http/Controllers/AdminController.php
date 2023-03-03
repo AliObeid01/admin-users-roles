@@ -22,8 +22,8 @@ class AdminController extends Controller
        ]);
     }
 
-     //addCertificate function to add a certificate
-    //return the certificate information
+     //approveUser function to aapprove a user
+    //return approved message
     public function approveUser(Request $request) {
 
         $id=$request->id;

@@ -65,6 +65,30 @@ class UserController extends Controller
         ]);
     }
 
+    //updateProfile Function to update user profile
+    //return update message
+    public function updateProfile(Request $request) {
+        $id = Auth::id();
+        $user = user::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->blood_type = $request->blood_type;
+
+        if($user->save()){
+            return response()->json([
+                "status" => "Success",
+                "message" => "Profile updated"
+            ]);
+        }
+
+        return response()->json([
+            "status" => "Error",
+            "data" => "Error editing profile"
+        ]);
+
+    }
+
     //logout function to delete the token and logout from the system
     //return logout message
     public function logout() {
