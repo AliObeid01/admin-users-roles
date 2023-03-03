@@ -47,6 +47,9 @@ class UserController extends Controller
         if (! $token = auth()->attempt($validator->validated())) {
             return response()->json(['message' => 'Incorrect email or password'], 401);
         }
+        if(auth()->User()->status!=1){
+            return response()->json(['message' => 'You are not approved yet by the admin'], 401);
+        }
         
         return $this->respondWithToken($token);
     }
@@ -61,7 +64,7 @@ class UserController extends Controller
             'user'=>auth()->User()
         ]);
     }
-    
+
     //logout function to delete the token and logout from the system
     //return logout message
     public function logout() {
