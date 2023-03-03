@@ -28,7 +28,7 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function addCertificate(): belongsToMany
+    public function userCertificates(): belongsToMany
     {
         return $this->belongsToMany(user::class, 'users_certificate', 'user_id', 'certificate_id');
     }

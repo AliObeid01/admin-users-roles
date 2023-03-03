@@ -94,13 +94,26 @@ class UserController extends Controller
     public function attachCertificate(Request $request) {
         $id = Auth::id();
         $user = user::find($id);
-        $user->addCertificate()->attach($request->certificate_id);
+        $user->userCertificates()->attach($request->certificate_id);
 
         return response()->json([
             "status" => "Success",
             "message" => "certificate has been added to your profile"
         ]);
 
+    }
+
+    //removeCertificate Function to let user remove a certificate from his profile
+    //return Success message
+    public function removeCertificate(Request $request) {
+        $id = Auth::id();
+        $user = user::find($id);
+        $user->userCertificates()->detach($request->favorite_id);
+
+        return response()->json([
+            "status" => "Success",
+            "data" => "certificate has been removed from your profile"
+        ]);
     }
 
     //logout function to delete the token and logout from the system
