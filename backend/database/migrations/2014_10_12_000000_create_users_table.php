@@ -17,7 +17,7 @@ return new class extends Migration
             $table-> string('gender',45);
             $table-> string('blood_type',45);
             $table-> integer ('status')->default(0);
-            $table-> string ('type');
+            $table-> string ('type')->default('user');
             $table->timestamps();
         });
     }

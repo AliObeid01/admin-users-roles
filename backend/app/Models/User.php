@@ -18,7 +18,6 @@ class User extends Authenticatable implements JWTSubject
         'password',
         'gender',
         'blood_type',
-        'type',
     ];
 
     public function getJWTIdentifier() {

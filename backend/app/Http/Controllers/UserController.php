@@ -18,7 +18,6 @@ class UserController extends Controller
             'password' => 'required|string|',
             'gender' => 'required|string|',
             'blood_type' => 'required|string|',
-            'type' => 'required|string|',
         ]);
         if($validator->stopOnFirstFailure()->fails()){
             return response()->json($validator->errors(), 401);
