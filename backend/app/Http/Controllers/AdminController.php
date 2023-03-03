@@ -21,7 +21,28 @@ class AdminController extends Controller
           "data" => $users
        ]);
     }
- 
+
+     //addCertificate function to add a certificate
+    //return the certificate information
+    public function approveUser(Request $request) {
+
+        $id=$request->id;
+        $user = user::find($id);
+        $user->status = 1;
+
+        if($user->save()){
+           return response()->json([
+             "status" => "Success",
+             "message" => "User Approved"
+           ]);
+        }
+
+       return response()->json([
+          "status" => "Error",
+          "data" => "Error editing profile"
+        ]);
+     }
+
     //addCertificate function to add a certificate
     //return the certificate information
     public function addCertificate(Request $request) {
