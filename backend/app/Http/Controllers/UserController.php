@@ -89,6 +89,20 @@ class UserController extends Controller
 
     }
 
+    //attachCertificate Function to let user attach a certificate to his profile
+    //return Success message
+    public function attachCertificate(Request $request) {
+        $id = Auth::id();
+        $user = user::find($id);
+        $user->addCertificate()->attach($request->certificate_id);
+
+        return response()->json([
+            "status" => "Success",
+            "message" => "certificate has been added to your profile"
+        ]);
+
+    }
+
     //logout function to delete the token and logout from the system
     //return logout message
     public function logout() {
