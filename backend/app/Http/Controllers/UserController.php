@@ -116,6 +116,13 @@ class UserController extends Controller
         ]);
     }
 
+    //getCertificates Function to get the Certificates of the user
+    public function getCertificates(Request $request) {
+        $id = Auth::id();
+        $user = user::find($id);
+        return $user->userCertificates()->get();
+    }
+
     //logout function to delete the token and logout from the system
     //return logout message
     public function logout() {

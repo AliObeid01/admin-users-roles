@@ -65,12 +65,9 @@ class AdminController extends Controller
     //return the report information
     public function certificatesReport (Request $request) {
 
-        return $certificates->userCertificates()->get();
-                    
-        return response()->json([
-            'message' => 'Certrificate successfully added',
-            'certificate' => $certificates
-        ], 201);
+        $id=$request->id;
+        $certificate = Certificates::find($id);
+        return $certificate->certificatesPerUser()->get();
      }
 
 }
