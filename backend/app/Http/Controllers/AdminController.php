@@ -67,7 +67,7 @@ class AdminController extends Controller
 
         $id=$request->id;
         $certificatesReport = Certificates::find($id);
-        return $certificatesReport->certificatesPerUser()->get();
+        return $certificatesReport->certificatesPerUser()->get()->count();
      }
 
 }
