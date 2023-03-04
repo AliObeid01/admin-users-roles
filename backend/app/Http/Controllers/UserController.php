@@ -126,6 +126,10 @@ class UserController extends Controller
     //logout function to delete the token and logout from the system
     //return logout message
     public function logout() {
+        $id = Auth::id();
+        $user = user::find($id);
+        $user->last_login = date('Y-m-d H:i:s') ;
+        $user->save();
         auth()->logout();
         return response()->json(['message' => 'User successfully signed out']);
     }

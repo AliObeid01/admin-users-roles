@@ -62,7 +62,7 @@ class AdminController extends Controller
      }
 
     //certificatesReport function to get Certificates with number of users per certificate
-    //return the report information
+    //return the number of users
     public function certificatesReport (Request $request) {
 
         $id=$request->id;

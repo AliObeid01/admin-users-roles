@@ -18,6 +18,7 @@ return new class extends Migration
             $table-> string('blood_type',45);
             $table-> integer ('status')->default(0);
             $table-> string ('type')->default('user');
+            $table->dateTime('last_login')->default(DB::raw('CURRENT_TIMESTAMP(0)'));
             $table->timestamps();
         });
     }
