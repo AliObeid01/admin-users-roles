@@ -22,7 +22,7 @@ class AdminController extends Controller
        ]);
     }
 
-     //approveUser function to aapprove a user
+    //approveUser function to aapprove a user
     //return approved message
     public function approveUser(Request $request) {
 

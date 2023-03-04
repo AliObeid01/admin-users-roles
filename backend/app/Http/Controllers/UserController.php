@@ -134,5 +134,12 @@ class UserController extends Controller
         return response()->json(['message' => 'User successfully signed out']);
     }
 
+    //notFound Function to route the user when unauthorized
+    function notFound(){
+        return response()->json([
+            "status" => "Error",
+            "message" => "You are not Authorized"
+        ]);
+    }
 
 }

@@ -28,5 +28,6 @@ Route::group(["prefix"=> "v1"], function(){
 
     Route::post('/register', [UserController::class, 'register']);
     Route::post('/login', [UserController::class, 'login']);
+    Route::get("/not_found", [UserController::class, "notFound"])->name("not-found");
 
 });
