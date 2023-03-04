@@ -70,4 +70,12 @@ class AdminController extends Controller
         return $certificatesReport->certificatesPerUser()->get()->count();
      }
 
+    //logout function to delete the token and logout from the system
+    //return logout message
+    public function logout() {
+
+        auth()->logout();
+        return response()->json(['message' => 'Admin successfully signed out']);
+    }
+
 }
