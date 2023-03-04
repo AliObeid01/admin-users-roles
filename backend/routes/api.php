@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 
@@ -26,8 +27,8 @@ Route::group(["prefix"=> "v1"], function(){
         
     });
 
-    Route::post('/register', [UserController::class, 'register']);
-    Route::post('/login', [UserController::class, 'login']);
-    Route::get("/not_found", [UserController::class, "notFound"])->name("not-found");
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::get("/not_found", [AuthController::class, "notFound"])->name("not-found");
 
 });
