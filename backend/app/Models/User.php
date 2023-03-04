@@ -30,7 +30,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function userCertificates(): belongsToMany
     {
-        return $this->belongsToMany(user::class, 'users_certificate', 'user_id', 'certificate_id');
+        return $this->belongsToMany(Certificates::class, 'users_certificate', 'user_id', 'certificate_id');
     }
 
     protected $hidden = [
