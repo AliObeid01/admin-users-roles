@@ -7,7 +7,7 @@
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" v-model="form.password" required>
     <br><br>
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
     </form>
     <br>
 </div>
