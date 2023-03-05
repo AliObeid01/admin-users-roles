@@ -2,24 +2,24 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    email:""
+    token:""
   },
   getters: {
   },
   mutations: {
-    login (state,email) {
-      state.email = email;
-      localStorage.setItem('email', email);
+    login (state,token) {
+      state.token = token;
+      localStorage.setItem('token', token);
       alert('Logged in');
     },
     logout(state){
-      state.email ="";
-      localStorage.removeItem('email');
+      state.token ="";
+      localStorage.removeItem('token');
       alert('Logged out');
     },
     initialiseStore(state) {
-      if(localStorage.getItem('email')){
-        state.email = localStorage.getItem('email');
+      if(localStorage.getItem('token')){
+        state.email = localStorage.getItem('token');
        }
     }
   },
