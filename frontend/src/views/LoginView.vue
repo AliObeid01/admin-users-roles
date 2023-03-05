@@ -1,5 +1,6 @@
 <template>
 <div>
+    <p>{{ errorMsg }}</p>
     <form  @submit="Submit" method="post">
     <label for="uname"><b>Email:</b></label>
     <input type="email" placeholder="Enter Email" v-model="form.email" required>
@@ -13,21 +14,35 @@
 </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     data() {
-    return {
-      form: {
-            email:"",
-            password:""
+     return {
+        form: {
+                email:"",
+                password:""
+            },
+        errorMsg: '',
         }
-      }
     },
     methods :{
-        Submit(event){
+        Submit(event)
+        {
             event.preventDefault()
-            alert('done')
+            axios.post(
+            'http://127.0.0.1:8000/api/v1/login',this.form, 
+            {
+                headers: {"Content-Type": "application/json",}
+            })
+            .then((response) => {
+                console.log(response);
+                localStorage.setItem('token', response.data.access_token);  
+            })
+            .catch( (error) => {
+                console.log(error);
+                this.errorMsg = error.response.data.message;
+            });
         }
-    }
-    
+    } 
 }
 </script>

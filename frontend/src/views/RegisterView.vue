@@ -2,7 +2,7 @@
 <div>
     <form  @submit="Submit" method="post">
         <label for="uname"><b>Name:</b></label>
-        <input type="email" placeholder="Enter Name" v-model="form.name" required>
+        <input type="text" placeholder="Enter Name" v-model="form.name" required>
         <br><br>
         <label for="uemail"><b>Email:</b></label>
         <input type="email" placeholder="Enter Email" v-model="form.email" required>
