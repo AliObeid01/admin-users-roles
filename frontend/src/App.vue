@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <img src="./assets/securealm.png">
     <nav>
       <router-link to="/">Login</router-link> |
-      <router-link to="/register">Register</router-link> |
+      <router-link to="/register">Register</router-link>
     </nav>
     <router-view/>
   </div>
