@@ -1,5 +1,6 @@
 <template>
 <div>
+    <p>{{ errorMsg }}</p>
     <form  @submit="Submit" method="post">
         <label for="uname"><b>Name:</b></label>
         <input type="text" placeholder="Enter Name" v-model="form.name" required>
@@ -8,20 +9,11 @@
         <input type="email" placeholder="Enter Email" v-model="form.email" required>
         <br><br>
         <label for="ugender"><b>Gender:</b></label>
-        <input type="radio" v-model="form.male" value="Male">Male
-        <input type="radio" v-model="form.male" value="Female">Female
+        <input type="radio" v-model="form.gender" value="Male">Male
+        <input type="radio" v-model="form.gender" value="Female">Female
         <br><br>
-        <label for="ublood"><b>Blood Type:</b></label>
-        <select name="bloodtype" id="bt">
-        <option value="A+">A+</option>
-        <option value="A-">A-</option>
-        <option value="B+">B+</option>
-        <option value="B-">B-</option>
-        <option value="AB+">AB+</option>
-        <option value="AB-">AB-</option>
-        <option value="O+">O+</option>
-        <option value="O-">O-</option>
-        </select>
+        <label for="ublood"><b>Blood Type(ex:A+):</b></label>
+        <input type="text" placeholder="Enter Blood Type" v-model="form.blood_type" required>
         <br><br>
         <label for="psw"><b>Password:</b></label>
         <input type="password" placeholder="Enter Password" v-model="form.password" required>
@@ -32,21 +24,38 @@
 </div>
 </template>
 <script>
+import axios from 'axios'
 export default {
     data() {
-    return {
-      form: {
-            email:"",
-            password:""
+     return {
+        form: {
+                name:"",
+                email:"",
+                gender:"",
+                blood_type:"",
+                password:""
+            },
+        errorMsg: '',
         }
-      }
     },
     methods :{
-        Submit(event){
+        Submit(event)
+        {
             event.preventDefault()
-            alert('done')
+            axios.post(
+            'http://127.0.0.1:8000/api/v1/register',this.form, 
+            {
+                headers: {"Content-Type": "application/json",}
+            })
+            .then((response) => {
+                console.log(response);
+                this.errorMsg = response.data.message;  
+            })
+            .catch( (error) => {
+                console.log(error);
+                this.errorMsg = error.response.data.message;
+            });
         }
-    }
-    
+    } 
 }
 </script>
