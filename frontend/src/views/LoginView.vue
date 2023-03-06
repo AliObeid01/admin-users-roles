@@ -64,7 +64,7 @@
 <script>
 import axios from 'axios'
 export default {
-    name:'LoginView',
+    name:'loginView',
     data() {
      return {
         form: {
@@ -93,6 +93,13 @@ export default {
                 this.errorMsg = error.response.data.message;
             });
         }
-    } 
+    },
+    mounted(){
+      const token=localStorage.getItem('token');
+      if(token)
+      {
+        this.$router.push({ name: 'admin' })
+      }
+    }
 }
 </script>

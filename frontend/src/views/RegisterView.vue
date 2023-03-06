@@ -66,7 +66,7 @@
 <script>
 import axios from 'axios'
 export default {
-    name:'RegisterView',
+    name:'registerView',
     data() {
      return {
         form: {

@@ -4,7 +4,12 @@
 <script>
 export default {
     name:'App',
+    mounted(){
+      const token=localStorage.getItem('token');
+      if(!token)
+      {
+        this.$router.push({ name: 'login' })
+      }
+    }
   }
-  const token=localStorage.getItem('token');
-  console.log(token);
 </script>
