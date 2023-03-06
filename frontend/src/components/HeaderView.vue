@@ -3,10 +3,10 @@
   <div class="topnav-centered">
     <a href="#" class="active">Admin Panel</a>
   </div>
-  <a href="#">Reports</a>
-  <a href="#">Add Certificate</a>
+  <router-link to="/admin">Reports</router-link>
+  <router-link to="/add_certificate">Add Certificate</router-link>
   <div class="topnav-right">
-    <a href="#">logout</a>
+    <a v-on:click="logout">logout</a>
   </div>
 
 </div>
@@ -15,6 +15,12 @@
 <script>
 export default {
   name: 'HeaderView',
+  methods:{
+    logout(){
+        localStorage.clear();
+        this.$router.push({ name: 'login' })
+    }
+  }
 }
 </script>
 
