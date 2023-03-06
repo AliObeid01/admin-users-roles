@@ -1,37 +1,24 @@
 <template>
-<div class="container">
-<div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    <div class="panel panel-default">
-     <div class="panel-heading">List of users
-     </div>
-      <div class="panel-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Gender</th>
-              <th>Status</th>
-              <th>Blood Type</th>
-              <th>Last Login</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="user in users.data" :key="user.id">
-              <td>{{user.name}}</td>
-              <td>{{user.email}}</td>
-              <td>{{user.gender}}</td>
-              <td>{{user.status}}</td>
-              <td>{{user.blood_type}}</td>
-              <td>{{user.last_login}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+<div>
+  <table border="1">
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Gender</td>
+      <td>Blood Type</td>
+      <td>Last Login</td>
+      <td>Status</td>
+    </tr>
+    <tr v-for="user in users.data" :key="user.id">
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.blood_type}}</td>
+      <td>{{user.last_login}}</td>
+      <td v-if="user.status===0"><button>Approve</button></td>
+      <td v-else>Approved</td>
+    </tr>
+  </table>
 </div>
 </template>
 
@@ -62,3 +49,15 @@ export default {
     } 
 }
 </script>
+
+<style>
+ td {
+width:100px;
+text-align:center;
+}
+table{
+  margin-left: auto; 
+  margin-right: auto;
+  border-color:skyblue;
+}
+</style>
