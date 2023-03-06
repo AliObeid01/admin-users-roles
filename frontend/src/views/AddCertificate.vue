@@ -1,6 +1,13 @@
 <template>
 <div>
 <Header/>
+    <div class="addCertificate">
+        <h1>Add Certificate</h1>
+        <form  @submit="Submit" method="post">
+        <input type="text" placeholder="Enter Certificate" v-model="form.certificate" required>
+        <button type="submit">Add</button>
+        </form>
+    </div>
 </div>
 </template>
 
@@ -11,5 +18,45 @@ export default {
     components:{
      Header
     },
+    data() {
+    return {
+    form: {
+            certificate:"",
+        },
+    }
+},
 }
 </script>
+
+<style>
+ .addCertificate input{
+    width:300px;
+    height:40px;
+    padding-left:20px;
+    display:block;
+    margin-bottom:20px;
+    margin-right:auto;
+    margin-left: auto;
+    border: 1px solid #04AA6D;
+ }
+ .addCertificate h1{
+    color: #04AA6D;
+    position: relative;
+    left: 43%;
+}
+ .addCertificate button{
+    width:320px;
+    height:40px;
+    background:#04AA6D;
+    padding-left:20px;
+    display:block;
+    margin-bottom:30px;
+    margin-right:auto;
+    margin-left: auto;
+    color:#fff;
+    border: 1px solid #04AA6D;
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
