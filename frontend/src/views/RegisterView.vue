@@ -1,27 +1,19 @@
 <template>
 <div>
     <img class="logo" src="../assets/securealm.png">
-    <p>{{ errorMsg }}</p>
-    <form  @submit="Submit" method="post">
-        <label for="uname"><b>Name:</b></label>
-        <input type="text" placeholder="Enter Name" v-model="form.name" required>
-        <br><br>
-        <label for="uemail"><b>Email:</b></label>
-        <input type="email" placeholder="Enter Email" v-model="form.email" required>
-        <br><br>
-        <label for="ugender"><b>Gender:</b></label>
-        <input type="radio" v-model="form.gender" value="Male">Male
-        <input type="radio" v-model="form.gender" value="Female">Female
-        <br><br>
-        <label for="ublood"><b>Blood Type:</b></label>
-        <input type="text" placeholder="example A+" v-model="form.blood_type" required>
-        <br><br>
-        <label for="psw"><b>Password:</b></label>
-        <input type="password" placeholder="Enter Password" v-model="form.password" required>
-        <br><br>
-        <button type="submit">Register</button>
-    </form>
-    <br>
+    <div class="register">        
+        <h1>Register</h1>
+        <p>{{ errorMsg }}</p>
+        <form  @submit="Submit" method="post">
+            <input type="text" placeholder="Enter Name" v-model="form.name" required>
+            <input type="email" placeholder="Enter Email" v-model="form.email" required>
+            <input type="radio" v-model="form.gender" value="Male">Male
+            <input type="radio" v-model="form.gender" value="Female">Female
+            <input type="text" placeholder="example A+" v-model="form.blood_type" required>
+            <input type="password" placeholder="Enter Password" v-model="form.password" required>
+            <button type="submit">Register</button>
+        </form>
+    </div>
 </div>
 </template>
 
@@ -34,7 +26,7 @@
    margin-right:auto;
    margin-left: auto;
  }
- .login input{
+ .register input{
     width:300px;
     height:40px;
     padding-left:20px;
@@ -44,15 +36,17 @@
     margin-left: auto;
     border: 1px solid skyblue;
  }
-.login p{
+.register p{
     color: #FF0000;
+    position: relative;
+    left: 44%;
 }
-.login h1{
+.register h1{
     color: skyblue;
     position: relative;
     left: 47%;
 }
-.login button{
+.register button{
     width:320px;
     height:40px;
     background:skyblue;

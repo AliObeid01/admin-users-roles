@@ -35,6 +35,8 @@
  }
 .login p{
     color: #FF0000;
+    position: relative;
+    left: 44%;
 }
 .login h1{
     color: skyblue;
@@ -61,7 +63,6 @@
 
 <script>
 import axios from 'axios'
-import router from '../router'
 export default {
     name:'LoginView',
     data() {
@@ -85,7 +86,7 @@ export default {
             .then((response) => {
                 console.log(response);
                 localStorage.setItem('token', response.data.access_token);
-                router.push({ name: 'admin' }) 
+                this.$router.push({ name: 'admin' }) 
             })
             .catch( (error) => {
                 console.log(error);

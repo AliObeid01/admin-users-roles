@@ -1,14 +1,10 @@
 <template>
-  <div>
-    <Login/>
-  </div>
+<router-view/>
 </template>
 <script>
-import Login from './views/LoginView.vue'
 export default {
     name:'App',
-    components:{
-      Login
-    }
   }
+  const token=localStorage.getItem('token');
+  console.log(token);
 </script>
