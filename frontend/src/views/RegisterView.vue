@@ -12,6 +12,9 @@
             <input type="password" placeholder="Enter Password" v-model="form.password" required>
             <button type="submit">Register</button>
         </form>
+        <h3>
+          Try Login! <router-link to="/login">Login</router-link>
+        </h3>
     </div>
 </div>
 </template>
@@ -38,12 +41,17 @@
 .register p{
     color: #FF0000;
     position: relative;
-    left: 44%;
+    left: 37%;
 }
 .register h1{
     color: skyblue;
     position: relative;
     left: 46%;
+}
+.register h3{
+    color: skyblue;
+    position: relative;
+    left: 45%;
 }
 .register button{
     width:320px;
@@ -89,7 +97,8 @@ export default {
             })
             .then((response) => {
                 console.log(response);
-                this.errorMsg = response.data.message;  
+                this.errorMsg = response.data.message;
+                this.form="";
             })
             .catch( (error) => {
                 console.log(error);
