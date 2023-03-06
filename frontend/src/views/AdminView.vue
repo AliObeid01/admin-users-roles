@@ -10,7 +10,7 @@ export default {
     const type=localStorage.getItem('type');
     if(type=='user')
     {
-      this.$router.push({ name: 'login' })
+      this.$router.push({ name: 'user' })
     }
   }
  }
