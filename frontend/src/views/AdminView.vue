@@ -92,6 +92,16 @@ table{
   border-color:#04AA6D;
 }
 button{
-
+  background-color: #555555;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 </style>

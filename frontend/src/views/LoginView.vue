@@ -41,12 +41,12 @@
     left: 44%;
 }
 .login h3{
-    color: skyblue;
+    color: #04AA6D;
     position: relative;
     left: 42%;
 }
 .login h1,h3{
-    color: skyblue;
+    color: #04AA6D;
     position: relative;
     left: 47%;
 }
