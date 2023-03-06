@@ -36,7 +36,7 @@
     margin-bottom:20px;
     margin-right:auto;
     margin-left: auto;
-    border: 1px solid skyblue;
+    border: 1px solid #04AA6D;
  }
 .register p{
     color: #FF0000;
@@ -44,26 +44,26 @@
     left: 37%;
 }
 .register h1{
-    color: skyblue;
+    color: #04AA6D;
     position: relative;
     left: 46%;
 }
 .register h3{
-    color: skyblue;
+    color: #04AA6D;
     position: relative;
     left: 45%;
 }
 .register button{
     width:320px;
     height:40px;
-    background:skyblue;
+    background:#04AA6D;
     padding-left:20px;
     display:block;
     margin-bottom:30px;
     margin-right:auto;
     margin-left: auto;
     color:#fff;
-    border: 1px solid skyblue;
+    border: 1px solid #04AA6D;
     cursor:pointer;
     font-size:20px;
     font-weight:bold;

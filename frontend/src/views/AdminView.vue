@@ -1,5 +1,6 @@
 <template>
 <div>
+<Header/>
   <table border="1">
     <tr>
       <td>ID</td>
@@ -26,8 +27,12 @@
 
 <script>
 import axios from 'axios'
+import Header from '../components/HeaderView.vue'
 export default {
     name:'AdminView',
+    components:{
+      Header
+    },
     data() {
      return {
       users:[],
@@ -72,14 +77,19 @@ export default {
 </script>
 
 <style>
- td {
-width:100px;
-text-align:center;
+body{
+  padding: 0;
+  margin:0;
+}
+td {
+  width:100px;
+  text-align:center;
 }
 table{
   margin-left: auto; 
   margin-right: auto;
-  border-color:skyblue;
+  margin-top:30px;
+  border-color:#04AA6D;
 }
 button{
 
