@@ -7,9 +7,8 @@
         <form  @submit="Submit" method="post">
             <input type="text" placeholder="Enter Name" v-model="form.name" required>
             <input type="email" placeholder="Enter Email" v-model="form.email" required>
-            <input type="radio" v-model="form.gender" value="Male">Male
-            <input type="radio" v-model="form.gender" value="Female">Female
-            <input type="text" placeholder="example A+" v-model="form.blood_type" required>
+            <input type="text" placeholder="Enter Gender (Male/Female)" v-model="form.gender" required>
+            <input type="text" placeholder="Enter Blood Type(ex:A+)" v-model="form.blood_type" required>
             <input type="password" placeholder="Enter Password" v-model="form.password" required>
             <button type="submit">Register</button>
         </form>
@@ -31,7 +30,7 @@
     height:40px;
     padding-left:20px;
     display:block;
-    margin-bottom:30px;
+    margin-bottom:20px;
     margin-right:auto;
     margin-left: auto;
     border: 1px solid skyblue;
@@ -44,7 +43,7 @@
 .register h1{
     color: skyblue;
     position: relative;
-    left: 47%;
+    left: 46%;
 }
 .register button{
     width:320px;
@@ -66,7 +65,7 @@
 <script>
 import axios from 'axios'
 export default {
-    name:'registerView',
+    name:'RegisterView',
     data() {
      return {
         form: {

@@ -9,8 +9,10 @@
         <input type="password" placeholder="Enter Password" v-model="form.password" required>
         <button type="submit">Login</button>
         </form>
+        <h3>
+          Dont Have acoount? <router-link to="/register">Register</router-link>
+        </h3>
     </div>
-    <br>
 </div>
 </template>
 
@@ -28,7 +30,7 @@
     height:40px;
     padding-left:20px;
     display:block;
-    margin-bottom:30px;
+    margin-bottom:20px;
     margin-right:auto;
     margin-left: auto;
     border: 1px solid skyblue;
@@ -38,7 +40,12 @@
     position: relative;
     left: 44%;
 }
-.login h1{
+.login h3{
+    color: skyblue;
+    position: relative;
+    left: 42%;
+}
+.login h1,h3{
     color: skyblue;
     position: relative;
     left: 47%;
