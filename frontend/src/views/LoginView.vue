@@ -93,20 +93,20 @@ export default {
             .then((response) => {
                 console.log(response);
                 localStorage.setItem('token', response.data.access_token);
-                this.$router.push({ name: 'admin' }) 
+                localStorage.setItem('type', response.data.user.type);
+                const type=localStorage.getItem('type')
+                if(type=='admin'){
+                  this.$router.push({ name: 'admin' }) 
+                }
+                else{
+                  this.$router.push({ name: 'user' })
+                }     
             })
             .catch( (error) => {
                 console.log(error);
                 this.errorMsg = error.response.data.message;
             });
         }
-    },
-    mounted(){
-      const token=localStorage.getItem('token');
-      if(token)
-      {
-        this.$router.push({ name: 'admin' })
-      }
     }
 }
 </script>
