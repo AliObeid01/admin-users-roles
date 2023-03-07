@@ -31,14 +31,14 @@
     border: 1px solid #04AA6D;
  }
 .register p{
-    color: #FF0000;
+    color: #04AA6D;
     position: relative;
     left: 37%;
 }
 .register h1{
     color: #04AA6D;
     position: relative;
-    left: 46%;
+    left: 50%;
 }
 .register h3{
     color: #04AA6D;
@@ -48,7 +48,7 @@
 .register button{
     width:320px;
     height:40px;
-    background:#04AA6D;
+    background:red;
     padding-left:20px;
     display:block;
     margin-bottom:30px;

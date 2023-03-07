@@ -6,7 +6,7 @@
   <router-link to="/admin">Reports</router-link>
   <router-link to="/add_certificate">Add Certificate</router-link>
   <div class="topnav-right">
-    <a v-on:click="Logout">logout</a>
+    <a v-on:click="logout">Logout</a>
   </div>
 </div>
 </template>
