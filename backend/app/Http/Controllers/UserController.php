@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Certificates;
 use App\Models\User;
 use Validator;
 
@@ -40,6 +41,17 @@ class UserController extends Controller
         ]);
 
     }
+    //getCertificates function to get Certificates
+    //return the list of certificates
+    public function Certificates() {
+
+        $certificates= Certificates::all();
+
+        return response()->json([
+           "status" => "Success",
+           "data" => $certificates
+        ]);
+     }    
 
     //attachCertificate Function to let user attach a certificate to his profile
     //return Success message

@@ -21,6 +21,7 @@ Route::group(["prefix"=> "v1"], function(){
         Route::group(["prefix"=> "user"], function(){
             Route::get('/user_profile', [UserController::class, 'userProfile']);
             Route::post('/update_profile', [UserController::class, 'updateProfile']);
+            Route::get('/certificates', [UserController::class, 'Certificates']);
             Route::post('/attach_certificate', [UserController::class, 'attachCertificate']);
             Route::post('/remove_certificate', [UserController::class, 'removeCertificate']);
             Route::get('/user_certificates', [UserController::class, 'getCertificates']);
