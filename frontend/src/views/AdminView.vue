@@ -2,6 +2,7 @@
 <div>
 <Header/>
   <table border="1">
+  <caption style="font-size:30px">Users List</caption>
     <tr>
       <td>ID</td>
       <td>Name</td>
@@ -22,6 +23,25 @@
       <td v-else>Approved</td>
     </tr>
   </table>
+  <table border="1">
+  <caption style="font-size:30px">Certificates Per Users</caption>
+    <tr>
+      <td>ID</td>
+      <td>Name</td>
+      <td>Details</td>
+    </tr>
+    <tr v-for="cert in certificates.data" :key="cert.id">
+      <td>{{cert.id}}</td>
+      <td>{{cert.name}}</td>
+      <td><a href="#" v-on:click="details(cert.id)">View</a></td>
+    </tr>
+  </table>
+  <table border="1">
+    <tr>
+      <td>Number of Users</td>
+      <td id="details"></td>
+    </tr>
+  </table>
 </div>
 </template>
 
@@ -36,6 +56,8 @@ export default {
     data() {
      return {
       users:[],
+      certificates:[],
+      nb_users:'',
      }
     },
     async mounted(){
@@ -53,7 +75,16 @@ export default {
          console.log(this.users);
          })
         .catch((error) => console.log(error.message))
-    },
+
+    axios.get('http://127.0.0.1:8000/api/v1/admin/certificates',{
+            headers: {'Authorization': 'Bearer ' + token}
+          })
+        .then((response) => {
+        this.certificates = response.data;
+        console.log(this.certificates);
+        })
+        .catch((error) => console.log(error.message))
+      },
     methods:{
       
        async approve(user_id){
@@ -71,7 +102,23 @@ export default {
          window.location.reload();
          })
         .catch((error) => console.log(error.response.data))
-      }
+      },
+      async details(cert_id){
+        const token=localStorage.getItem('token');
+         await axios.post('http://127.0.0.1:8000/api/v1/admin/certificates_report',
+         {
+          id:cert_id
+         },
+         {
+                headers: {'Authorization': 'Bearer ' + token},
+                
+         })
+        .then((response) => {
+         console.log(response.data);
+         document.getElementById("details").innerHTML=`<td>${response.data}</td>`;
+         })
+        .catch((error) => console.log(error.response.data))
+      }     
     }
 }
 </script>
