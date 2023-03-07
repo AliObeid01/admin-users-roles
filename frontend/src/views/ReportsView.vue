@@ -20,16 +20,19 @@
       <td id="details"></td>
     </tr>
   </table>
+  <Footer/>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Header from '../components/HeaderView.vue'
+import Footer from '../components/FooterView.vue'
 export default {
     name:'ReportsView',
     components:{
-      Header
+      Header,
+      Footer
     },
     data() {
      return {

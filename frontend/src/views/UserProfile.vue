@@ -20,16 +20,19 @@
   </div>
     <p><b>Approved by Admin</b></p>
 </div>
+<Footer/>
 </div>
 </template>
 
 <script>
 import UserHeader from '../components/UserHeader.vue'
+import Footer from '../components/FooterView.vue'
 import axios from 'axios'
 export default {
     name: 'UserProfile',
     components:{
-     UserHeader
+     UserHeader,
+     Footer
     },
     data() {
      return {
@@ -101,4 +104,5 @@ export default {
   float:right;
   padding-right:4px;
 }
+
 </style>

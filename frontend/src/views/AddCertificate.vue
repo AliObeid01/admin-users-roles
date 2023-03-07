@@ -9,6 +9,7 @@
     <button type="submit">Add</button>
     </form>
 </div>
+
 </div>
 </template>
 
@@ -18,7 +19,7 @@ import axios from 'axios'
 export default {
     name: 'AddCertificate',
     components:{
-     Header
+     Header,
     },
     data() {
      return {

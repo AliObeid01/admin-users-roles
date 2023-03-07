@@ -23,16 +23,19 @@
       <td v-else>Approved</td>
     </tr>
   </table>
+  <Footer/>
 </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Header from '../components/HeaderView.vue'
+import Footer from '../components/FooterView.vue'
 export default {
     name:'AdminView',
     components:{
-      Header
+      Header,
+      Footer
     },
     data() {
      return {

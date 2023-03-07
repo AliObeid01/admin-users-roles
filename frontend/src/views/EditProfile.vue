@@ -19,16 +19,19 @@
     <button type="submit">Add Certificate</button>
     </form>
 </div>
+<Footer/>
 </div>
 </template>
 
 <script>
 import UserHeader from '../components/UserHeader.vue'
+import Footer from '../components/FooterView.vue'
 import axios from 'axios'
 export default {
     name: 'EditProfile',
     components:{
-     UserHeader
+     UserHeader,
+     Footer
     },
     data() {
      return {

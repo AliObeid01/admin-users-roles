@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'UserHeader',
   data(){
@@ -24,8 +25,16 @@ export default {
   },
   methods:{
     logout(){
+        const token=localStorage.getItem('token');
+        axios.get('http://127.0.0.1:8000/api/v1/user/logout',{
+            headers: {'Authorization': 'Bearer ' + token}
+        })
+        .then((response) => {
+          console.log(response)
         localStorage.clear();
         this.$router.push({ name: 'login' })
+        })
+        .catch((error) => console.log(error.message))
     }
   }
 }
