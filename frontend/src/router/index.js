@@ -6,6 +6,7 @@ import RegisterView from '../views/RegisterView.vue'
 import AddCertificate from '../views/AddCertificate.vue'
 import UserProfile from '../views/UserProfile.vue'
 import EditProfile from '../views/EditProfile.vue'
+import ReportsView from '../views/ReportsView.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
     path: '/edit_profile',
     name: 'edit_profile',
     component: EditProfile
+  },
+  {
+    path: '/reports',
+    name: 'reports',
+    component: ReportsView
   },
 
 ]

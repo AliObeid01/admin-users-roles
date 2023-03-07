@@ -3,8 +3,9 @@
   <div class="topnav-centered">
     <a href="#" class="active">Admin Panel</a>
   </div>
-  <router-link to="/admin">Reports</router-link>
+  <router-link to="/admin">Users</router-link>
   <router-link to="/add_certificate">Add Certificate</router-link>
+  <router-link to="/reports">Reports</router-link>
   <div class="topnav-right">
     <a v-on:click="logout">Logout</a>
   </div>
