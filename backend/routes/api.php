@@ -15,7 +15,6 @@ Route::group(["prefix"=> "v1"], function(){
             Route::post('/add_certificate', [AdminController::class, 'addCertificate']);
             Route::get('/certificates', [AdminController::class, 'getCertificates']);
             Route::post('/certificates_report', [AdminController::class, 'certificatesReport']);
-            Route::get('/logout', [AdminController::class, 'logout']);
         });
         
         Route::group(["prefix"=> "user"], function(){
