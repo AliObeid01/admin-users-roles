@@ -100,7 +100,7 @@ export default {
                   this.$router.push({ name: 'admin' }) 
                 }
                 else{
-                  this.$router.push({ name: 'user' })
+                  this.$router.push({ name: 'user_profile' })
                 }     
             })
             .catch( (error) => {

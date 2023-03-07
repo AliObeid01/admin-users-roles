@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import LoginView from '../views/LoginView.vue'
 import AdminView from '../views/AdminView.vue'
 import RegisterView from '../views/RegisterView.vue'
-import UserView from '../views/UserView.vue'
 import AddCertificate from '../views/AddCertificate.vue'
 import UserProfile from '../views/UserProfile.vue'
 import EditProfile from '../views/EditProfile.vue'
@@ -25,11 +24,6 @@ const routes = [
     path: '/register',
     name: 'register',
     component: RegisterView
-  },
-  {
-    path: '/user',
-    name: 'user',
-    component: UserView
   },
   {
     path: '/add_certificate',

@@ -64,14 +64,13 @@ export default {
     const type=localStorage.getItem('type');
     if(type=='user')
     {
-      this.$router.push({ name: 'user' })
+      this.$router.push({ name: 'user_profile' })
     }
     await axios.get('http://127.0.0.1:8000/api/v1/admin/users',{
                 headers: {'Authorization': 'Bearer ' + token}
             })
         .then((response) => {
          this.users = response.data;
-         console.log(this.users);
          })
         .catch((error) => console.log(error.message))
 

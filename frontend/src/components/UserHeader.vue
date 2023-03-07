@@ -6,7 +6,7 @@
   <router-link to="/user_profile">Profile</router-link>
   <router-link to="/edit_profile">Edit Profile</router-link>
   <div class="topnav-right">
-    <a v-on:click="logout">logout</a>
+    <a v-on:click="logout">Logout</a>
   </div>
 </div>
 </template>

@@ -1,15 +1,72 @@
 <template>
 <div>
 <UserHeader/>
+<div class="card">
+  <div class="container">
+    Name:<h4><b>{{user[0].name}}</b></h4>
+  </div>
+  <div class="container">
+    Email:<p><b>{{user[0].email}}</b></p>
+  </div>
+  <div class="container">
+    Gender:<p><b>{{user[0].gender}}</b></p>
+  </div>
+  <div class="container">
+    Blood Type:<p><b>{{user[0].blood_type}}</b></p>
+  </div>
+  
+    <p><b>Approved by Admin</b></p>
+  
+</div>
 </div>
 </template>
 
 <script>
 import UserHeader from '../components/UserHeader.vue'
+import axios from 'axios'
 export default {
     name: 'UserProfile',
     components:{
      UserHeader
     },
+    data() {
+     return {
+      user:'',
+     }
+    },
+    async mounted(){
+    const token=localStorage.getItem('token');
+    const type=localStorage.getItem('type');
+    if(type=='admin')
+    {
+      this.$router.push({ name: 'admin' })
+    }
+    await axios.get('http://127.0.0.1:8000/api/v1/user/user_profile',{
+                headers: {'Authorization': 'Bearer ' + token}
+            })
+        .then((response) => {
+         this.user = response.data;
+         })
+        .catch((error) => console.log(error.response.data))
+    }
 }
 </script>
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  margin: auto;
+  width: 20%;
+  margin-top:30px;
+  padding: 10px;
+  background-color:#04AA6D;
+  text-align:center;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.container {
+  text-align:center;
+  background-color:white;
+}
+</style>
