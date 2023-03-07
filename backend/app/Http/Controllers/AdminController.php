@@ -39,7 +39,7 @@ class AdminController extends Controller
 
        return response()->json([
           "status" => "Error",
-          "data" => "Error editing profile"
+          "data" => "Error approve user"
         ]);
      }
 
@@ -60,7 +60,17 @@ class AdminController extends Controller
             'certificate' => $certificate
         ], 201);
      }
+    //getCertificates function to get Certificates
+    //return the list of certificates
+    public function getCertificates () {
 
+        $certificates= Certificates::all();
+
+        return response()->json([
+           "status" => "Success",
+           "data" => $certificates
+        ]);
+     }
     //certificatesReport function to get Certificates with number of users per certificate
     //return the number of users
     public function certificatesReport (Request $request) {

@@ -21,14 +21,14 @@ class AuthController extends Controller
             'blood_type' => 'required|string|',
         ]);
         if($validator->stopOnFirstFailure()->fails()){
-            return response()->json($validator->errors(), 401);
+            return response()->json(['message'=> $validator->errors()],401);
         }
         $user = User::create(array_merge(
                     $validator->validated(),
                     ['password' => bcrypt($request->password)],
                 ));
         return response()->json([
-            'message' => 'User successfully registered',
+            'message' => 'Successfully registered.Please wait until the admin approved you.',
             'user' => $user
         ], 201);
     }

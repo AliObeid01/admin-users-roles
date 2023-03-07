@@ -9,6 +9,11 @@ use Validator;
 
 class UserController extends Controller
 {
+
+    //userProfile Function return the user information
+    public function userProfile() {
+        return response()->json(auth()->user());
+    }
     
     //updateProfile Function to update user profile
     //return update message
@@ -17,8 +22,10 @@ class UserController extends Controller
         $user = user::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->gender = $request->email;
         $user->blood_type = $request->blood_type;
+        $user->password = bcrypt($request->password);
+        
 
         if($user->save()){
             return response()->json([

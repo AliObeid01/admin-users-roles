@@ -13,11 +13,13 @@ Route::group(["prefix"=> "v1"], function(){
             Route::get('/users', [AdminController::class, 'getUsers']);
             Route::post('/approve_user', [AdminController::class, 'approveUser']);
             Route::post('/add_certificate', [AdminController::class, 'addCertificate']);
-            Route::get('/certificates_report', [AdminController::class, 'certificatesReport']);
+            Route::get('/certificates', [AdminController::class, 'getCertificates']);
+            Route::post('/certificates_report', [AdminController::class, 'certificatesReport']);
             Route::get('/logout', [AdminController::class, 'logout']);
         });
         
         Route::group(["prefix"=> "user"], function(){
+            Route::get('/user_profile', [UserController::class, 'userProfile']);
             Route::post('/update_profile', [UserController::class, 'updateProfile']);
             Route::post('/attach_certificate', [UserController::class, 'attachCertificate']);
             Route::post('/remove_certificate', [UserController::class, 'removeCertificate']);
