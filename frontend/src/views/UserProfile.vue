@@ -16,7 +16,7 @@
   </div>
  <div class="container">
     Certificates:
-    <p v-for="item in user_certificates" :key="item.name" ><b>{{item.name}}</b></p>
+    <p v-for="item in user_certificates" :key="item.id" ><b>{{item.name}}</b><a href="#" v-on:click="remove(item.id)">remove</a></p>
   </div>
     <p><b>Approved by Admin</b></p>
 </div>
@@ -59,8 +59,24 @@ export default {
          console.log(this.user_certificates)
          })
         .catch((error) => console.log(error.response.data))        
-    }
-    
+    },
+    methods:{
+        remove(certificate_id){
+          const token=localStorage.getItem('token');
+          axios.post('http://127.0.0.1:8000/api/v1/user/remove_certificate',
+          {
+            certificate_id:certificate_id
+          },
+          {
+            headers: {'Authorization': 'Bearer ' + token},
+                  
+          })
+          .then((response) => {
+          console.log(response.data);
+          })
+          .catch((error) => console.log(error.response.data))
+      }  
+    }    
 }
 </script>
 <style>
@@ -80,5 +96,9 @@ export default {
 .container {
   text-align:center;
   background-color:white;
+}
+.container a {
+  float:right;
+  padding-right:4px;
 }
 </style>

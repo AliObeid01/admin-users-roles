@@ -3,7 +3,7 @@
     <Logo/>
     <div class="login">
         <h1>Login</h1>
-        <p>{{ errorMsg }}</p>
+        <div class="msg">{{ msg }}</div>
         <form  @submit="Submit" method="post">
         <input type="email" placeholder="Enter Email" v-model="form.email" required>
         <input type="password" placeholder="Enter Password" v-model="form.password" required>
@@ -27,17 +27,17 @@
     margin-left: auto;
     border: 1px solid #04AA6D;
  }
-.login p{
+.msg{
     color: #FF0000;
-    position: relative;
-    left: 44%;
+    text-align:center;
+    padding-bottom:4px;
 }
 .login h3{
     color: #04AA6D;
     position: relative;
     left: 42%;
 }
-.login h1,h3{
+.login h1{
     color: #04AA6D;
     position: relative;
     left: 47%;
@@ -74,7 +74,7 @@ export default {
                 email:"",
                 password:""
             },
-        errorMsg: '',
+        msg: '',
         }
     },
     methods :{
@@ -100,7 +100,7 @@ export default {
                 }     
             })
             .catch( (error) => {
-                this.errorMsg = error.response.data.message;
+                this.msg = error.response.data.message;
             });
         }
     }

@@ -3,7 +3,7 @@
     <Logo/>
     <div class="register">        
         <h1>Register</h1>
-        <p>{{ errorMsg }}</p>
+        <div class="msg">{{ msg }}</div>
         <form  @submit="Submit" method="post">
             <input type="text" placeholder="Enter Name" v-model="form.name" required>
             <input type="email" placeholder="Enter Email" v-model="form.email" required>
@@ -30,10 +30,10 @@
     margin-left: auto;
     border: 1px solid #04AA6D;
  }
-.register p{
-    color: #04AA6D;
-    position: relative;
-    left: 37%;
+.msg{
+    color: #FF0000;
+    text-align:center;
+    padding-bottom:4px;
 }
 .register h1{
     color: #04AA6D;
@@ -79,7 +79,7 @@ export default {
                 blood_type:"",
                 password:""
             },
-        errorMsg: '',
+        msg: '',
         }
     },
     methods :{
@@ -93,12 +93,12 @@ export default {
             })
             .then((response) => {
                 console.log(response);
-                this.errorMsg = response.data.message;
+                this.msg = response.data.message;
                 this.form="";
             })
             .catch( (error) => {
                 console.log(error);
-                this.errorMsg = error.response.data.message;
+                this.msg = error.response.data.message;
             });
         }
     } 

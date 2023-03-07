@@ -2,14 +2,21 @@
 <div>
 <UserHeader/>
 <div class="register">        
-    <p>{{ errorMsg }}</p>
+    <div class="msg">{{ msg }}</div>
     <form @submit="Submit" method="post">
         <input type="text" placeholder="Enter Name" v-model="form.name" required>
         <input type="email" placeholder="Enter Email" v-model="form.email" required>
         <input type="text" placeholder="Enter Gender (Male/Female)" v-model="form.gender" required>
         <input type="text" placeholder="Enter Blood Type(ex:A+)" v-model="form.blood_type" required>
-        <input type="password" placeholder="Enter New Password" v-model="form.password" required>
-        <button type="submit">Save</button>
+        <button type="submit">Update Profile</button>
+    </form>
+</div>
+<div class="register">
+    <form @submit="Add" method="post">
+        <select v-model="select.certificate_id">
+         <option v-for="cert in certificates.data" v-bind:key="cert.id" v-bind:value="cert.id">{{ cert.name }}</option>
+        </select>
+    <button type="submit">Add Certificate</button>
     </form>
 </div>
 </div>
@@ -31,7 +38,11 @@ export default {
                 gender:"",
                 blood_type:"",
             },
-        errorMsg: '',
+        select:{
+            certificate_id:''
+            },
+        msg: '',
+        certificates:[],
         }
     },
     async mounted(){
@@ -48,7 +59,15 @@ export default {
          this.form = response.data;
          console.log(this.form)
          })
-        .catch((error) => console.log(error.response.data))        
+        .catch((error) => console.log(error.response.data)) 
+    axios.get('http://127.0.0.1:8000/api/v1/user/certificates',{
+            headers: {'Authorization': 'Bearer ' + token}
+          })
+        .then((response) => {
+        this.certificates = response.data;
+        console.log(this.certificates);
+        })
+        .catch((error) => console.log(error.message))               
     },
     methods :{
         Submit(event)
@@ -62,12 +81,29 @@ export default {
             })
             .then((response) => {
                 console.log(response);
-                this.errorMsg = response.data.message;
+                this.msg = response.data.message;
                 this.form="";
             })
             .catch( (error) => {
                 console.log(error);
                 this.errorMsg = error.response.data.message;
+            });
+        },
+      Add(event)
+        {
+            event.preventDefault()
+            const token=localStorage.getItem('token');
+            console.log(this.select);
+            axios.post(
+            'http://127.0.0.1:8000/api/v1/user/attach_certificate',this.select, 
+            {
+                headers: {'Authorization': 'Bearer ' + token}
+            })
+            .then((response) => {
+                this.msg = response.data.message;
+            })
+            .catch( (error) => {
+                console.log(error.response.data.message);
             });
         }
     }        
@@ -75,19 +111,17 @@ export default {
 </script>
 
 <style>
- .logo{
-   width:300px;
-   height:100px;
-   display:block;
-   margin-bottom:30px;
-   margin-right:auto;
-   margin-left: auto;
- }
- .register input{
+.msg{
+    color: #FF0000;
+    text-align:center;
+    padding-bottom:4px;
+}
+ .register input,select{
     width:300px;
     height:40px;
     padding-left:20px;
     display:block;
+    margin-bottom:20px;
     margin-bottom:20px;
     margin-right:auto;
     margin-left: auto;
@@ -123,4 +157,5 @@ export default {
     font-size:20px;
     font-weight:bold;
 }
+
 </style>

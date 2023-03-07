@@ -3,12 +3,12 @@
 <Header/>
 <div class="addCertificate">
     <h1>Add Certificate</h1>
-    <p>{{ msg }}</p>
+    <div class="msg">{{ msg }}</div>
     <form  @submit="Submit" method="post">
     <input type="text" placeholder="Enter Certificate" v-model="form.name" required>
     <button type="submit">Add</button>
     </form>
-    </div>
+</div>
 </div>
 </template>
 
@@ -58,6 +58,11 @@ export default {
 </script>
 
 <style>
+.msg{
+    color: #FF0000;
+    text-align:center;
+    padding-bottom:4px;
+}
 .addCertificate input{
     width:300px;
     height:40px;
