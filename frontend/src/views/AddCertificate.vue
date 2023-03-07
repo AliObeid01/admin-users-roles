@@ -1,13 +1,13 @@
 <template>
 <div>
 <Header/>
-    <div class="addCertificate">
-        <h1>Add Certificate</h1>
-        <p>{{ msg }}</p>
-        <form  @submit="Submit" method="post">
-        <input type="text" placeholder="Enter Certificate" v-model="form.name" required>
-        <button type="submit">Add</button>
-        </form>
+<div class="addCertificate">
+    <h1>Add Certificate</h1>
+    <p>{{ msg }}</p>
+    <form  @submit="Submit" method="post">
+    <input type="text" placeholder="Enter Certificate" v-model="form.name" required>
+    <button type="submit">Add</button>
+    </form>
     </div>
 </div>
 </template>
@@ -23,8 +23,8 @@ export default {
     data() {
      return {
         form: {
-                name:"",
-            },
+            name:"",
+        },
             msg: '',
         }
 },
@@ -33,14 +33,12 @@ export default {
         {
             event.preventDefault()
             const token=localStorage.getItem('token');
-            console.log(this.form);
             axios.post(
             'http://127.0.0.1:8000/api/v1/admin/add_certificate',this.form, 
             {
                 headers: {'Authorization': 'Bearer ' + token,"Content-Type": "application/json"}
             })
             .then((response) => {
-                console.log(response);
                 this.msg = response.data.message;
                 this.form="";
             })

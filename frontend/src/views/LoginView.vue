@@ -94,6 +94,7 @@ export default {
                 console.log(response);
                 localStorage.setItem('token', response.data.access_token);
                 localStorage.setItem('type', response.data.user.type);
+                localStorage.setItem('user_name', response.data.user.name);
                 const type=localStorage.getItem('type')
                 if(type=='admin'){
                   this.$router.push({ name: 'admin' }) 
@@ -103,7 +104,6 @@ export default {
                 }     
             })
             .catch( (error) => {
-                console.log(error);
                 this.errorMsg = error.response.data.message;
             });
         }

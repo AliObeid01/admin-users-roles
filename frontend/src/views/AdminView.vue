@@ -57,7 +57,6 @@ export default {
      return {
       users:[],
       certificates:[],
-      nb_users:'',
      }
     },
     async mounted(){

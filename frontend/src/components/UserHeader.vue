@@ -1,10 +1,10 @@
 <template>
 <div class="topnav">
   <div class="topnav-centered">
-    <a href="#" class="active">Admin Panel</a>
+    <a href="#" class="active">Welcome {{user_name}}</a>
   </div>
-  <router-link to="/admin">Reports</router-link>
-  <router-link to="/add_certificate">Add Certificate</router-link>
+  <router-link to="#">Profile</router-link>
+  <router-link to="#">Edit Profile</router-link>
   <div class="topnav-right">
     <a v-on:click="logout">logout</a>
   </div>
@@ -13,7 +13,15 @@
 
 <script>
 export default {
-  name: 'HeaderView',
+  name: 'UserHeader',
+  data(){
+    return{
+      user_name:"",
+    }
+  },
+  mounted(){
+    this.user_name=localStorage.getItem('user_name');
+  },
   methods:{
     logout(){
         localStorage.clear();

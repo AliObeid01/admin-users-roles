@@ -1,11 +1,16 @@
 <template>
     <div>
-      <p>Hello User</p>
+      <UserHeader/>
     </div>
 </template>
+
 <script>
+import UserHeader from '../components/UserHeader.vue'
 export default {
     name:'UserView',
+    components:{
+      UserHeader
+    },
     mounted(){
     const type=localStorage.getItem('type');
     if(type=='admin')
