@@ -5,6 +5,8 @@ import AdminView from '../views/AdminView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import UserView from '../views/UserView.vue'
 import AddCertificate from '../views/AddCertificate.vue'
+import UserProfile from '../views/UserProfile.vue'
+import EditProfile from '../views/EditProfile.vue'
 
 Vue.use(VueRouter)
 
@@ -35,9 +37,14 @@ const routes = [
     component: AddCertificate
   },
   {
-    path: '/user',
-    name: 'user',
-    component: UserView
+    path: '/user_profile',
+    name: 'user_profile',
+    component: UserProfile
+  },
+  {
+    path: '/edit_profile',
+    name: 'edit_profile',
+    component: EditProfile
   },
 
 ]
