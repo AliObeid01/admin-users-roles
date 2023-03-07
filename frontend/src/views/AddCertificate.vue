@@ -27,7 +27,14 @@ export default {
         },
             msg: '',
         }
-},
+    },
+    mounted(){
+    const type=localStorage.getItem('type');
+    if(type=='user')
+    {
+      this.$router.push({ name: 'user_profile' })
+    }
+    },
     methods :{
      Submit(event)
         {

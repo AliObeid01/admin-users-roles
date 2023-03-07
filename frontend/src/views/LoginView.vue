@@ -1,6 +1,6 @@
 <template>
 <div>
-    <img class="logo" src="../assets/securealm.png">
+    <Logo/>
     <div class="login">
         <h1>Login</h1>
         <p>{{ errorMsg }}</p>
@@ -17,14 +17,6 @@
 </template>
 
 <style>
- .logo{
-   width:300px;
-   height:100px;
-   display:block;
-   margin-bottom:30px;
-   margin-right:auto;
-   margin-left: auto;
- }
  .login input{
     width:300px;
     height:40px;
@@ -69,9 +61,13 @@
 </style>
 
 <script>
+import Logo from '../components/LogoView.vue'
 import axios from 'axios'
 export default {
     name:'loginView',
+    components:{
+     Logo
+    },
     data() {
      return {
         form: {

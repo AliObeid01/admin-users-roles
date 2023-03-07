@@ -3,16 +3,16 @@
 <UserHeader/>
 <div class="card">
   <div class="container">
-    Name:<h4><b>{{user[0].name}}</b></h4>
+    Name:<h4><b>{{user.name}}</b></h4>
   </div>
   <div class="container">
-    Email:<p><b>{{user[0].email}}</b></p>
+    Email:<p><b>{{user.email}}</b></p>
   </div>
   <div class="container">
-    Gender:<p><b>{{user[0].gender}}</b></p>
+    Gender:<p><b>{{user.gender}}</b></p>
   </div>
   <div class="container">
-    Blood Type:<p><b>{{user[0].blood_type}}</b></p>
+    Blood Type:<p><b>{{user.blood_type}}</b></p>
   </div>
  <div class="container">
     Certificates:
@@ -33,7 +33,7 @@ export default {
     },
     data() {
      return {
-      user:'',
+      user:[],
       user_certificates:[]
      }
     },

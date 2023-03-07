@@ -1,6 +1,6 @@
 <template>
 <div>
-    <img class="logo" src="../assets/securealm.png">
+    <Logo/>
     <div class="register">        
         <h1>Register</h1>
         <p>{{ errorMsg }}</p>
@@ -20,14 +20,6 @@
 </template>
 
 <style>
- .logo{
-   width:300px;
-   height:100px;
-   display:block;
-   margin-bottom:30px;
-   margin-right:auto;
-   margin-left: auto;
- }
  .register input{
     width:300px;
     height:40px;
@@ -71,9 +63,13 @@
 </style>
 
 <script>
+import Logo from '../components/LogoView.vue'
 import axios from 'axios'
 export default {
     name:'RegisterView',
+    components:{
+     Logo
+    },    
     data() {
      return {
         form: {
