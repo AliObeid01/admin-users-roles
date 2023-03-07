@@ -23,11 +23,9 @@ class UserController extends Controller
         $user = user::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->gender = $request->email;
+        $user->gender = $request->gender;
         $user->blood_type = $request->blood_type;
-        $user->password = bcrypt($request->password);
         
-
         if($user->save()){
             return response()->json([
                 "status" => "Success",
