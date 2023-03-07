@@ -3,8 +3,9 @@
 <Header/>
     <div class="addCertificate">
         <h1>Add Certificate</h1>
+        <p>{{ msg }}</p>
         <form  @submit="Submit" method="post">
-        <input type="text" placeholder="Enter Certificate" v-model="form.certificate" required>
+        <input type="text" placeholder="Enter Certificate" v-model="form.name" required>
         <button type="submit">Add</button>
         </form>
     </div>
@@ -13,23 +14,46 @@
 
 <script>
 import Header from '../components/HeaderView.vue'
+import axios from 'axios'
 export default {
     name: 'AddCertificate',
     components:{
      Header
     },
     data() {
-    return {
-    form: {
-            certificate:"",
-        },
-    }
+     return {
+        form: {
+                name:"",
+            },
+            msg: '',
+        }
 },
+    methods :{
+     Submit(event)
+        {
+            event.preventDefault()
+            const token=localStorage.getItem('token');
+            console.log(this.form);
+            axios.post(
+            'http://127.0.0.1:8000/api/v1/admin/add_certificate',this.form, 
+            {
+                headers: {'Authorization': 'Bearer ' + token,"Content-Type": "application/json"}
+            })
+            .then((response) => {
+                console.log(response);
+                this.msg = response.data.message;
+                this.form="";
+            })
+            .catch( (error) => {
+                console.log(error.response.data.message);
+            });
+        }
+    }
 }
 </script>
 
 <style>
- .addCertificate input{
+.addCertificate input{
     width:300px;
     height:40px;
     padding-left:20px;
@@ -39,12 +63,17 @@ export default {
     margin-left: auto;
     border: 1px solid #04AA6D;
  }
- .addCertificate h1{
+.addCertificate h1{
     color: #04AA6D;
     position: relative;
     left: 43%;
 }
- .addCertificate button{
+.addCertificate p{
+    color: #FF0000;
+    position: relative;
+    left: 43%;
+}
+.addCertificate button{
     width:320px;
     height:40px;
     background:#04AA6D;
