@@ -14,9 +14,11 @@
   <div class="container">
     Blood Type:<p><b>{{user[0].blood_type}}</b></p>
   </div>
-  
+ <div class="container">
+    Certificates:
+    <p v-for="item in user_certificates" :key="item.name" ><b>{{item.name}}</b></p>
+  </div>
     <p><b>Approved by Admin</b></p>
-  
 </div>
 </div>
 </template>
@@ -32,6 +34,7 @@ export default {
     data() {
      return {
       user:'',
+      user_certificates:[]
      }
     },
     async mounted(){
@@ -48,7 +51,16 @@ export default {
          this.user = response.data;
          })
         .catch((error) => console.log(error.response.data))
+    await axios.get('http://127.0.0.1:8000/api/v1/user/user_certificates',{
+                headers: {'Authorization': 'Bearer ' + token}
+            })
+        .then((response) => {
+         this.user_certificates = response.data;
+         console.log(this.user_certificates)
+         })
+        .catch((error) => console.log(error.response.data))        
     }
+    
 }
 </script>
 <style>
