@@ -3,8 +3,8 @@
   <div class="topnav-centered">
     <a href="#" class="active">Welcome {{user_name}}</a>
   </div>
-  <router-link to="#">Profile</router-link>
-  <router-link to="#">Edit Profile</router-link>
+  <router-link to="/user_profile">Profile</router-link>
+  <router-link to="/edit_profile">Edit Profile</router-link>
   <div class="topnav-right">
     <a v-on:click="logout">logout</a>
   </div>
