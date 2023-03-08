@@ -9,17 +9,19 @@
     <button type="submit">Add</button>
     </form>
 </div>
-
+<Footer/>
 </div>
 </template>
 
 <script>
 import Header from '../components/HeaderView.vue'
+import Footer from '../components/FooterView.vue'
 import axios from 'axios'
 export default {
     name: 'AddCertificate',
     components:{
      Header,
+     Footer,
     },
     data() {
      return {
