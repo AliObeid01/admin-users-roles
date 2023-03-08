@@ -5,7 +5,7 @@
 ![login](https://user-images.githubusercontent.com/112481574/223585595-b2700583-2fae-432f-beb4-f2c19441dec2.PNG)
 
 - Auth:
-![auth](https://user-images.githubusercontent.com/112481574/223585636-f5919806-6315-458d-a3f5-041e5feb83fc.PNG)
+![auth](https://user-images.githubusercontent.com/112481574/223586983-42115688-915d-4ebf-9327-e0bfc79536bb.PNG)
 
 - Users:
 ![users](https://user-images.githubusercontent.com/112481574/223585701-04e79738-f72e-4812-be5f-1d0e34cd4255.PNG)
@@ -23,7 +23,7 @@
 ![register](https://user-images.githubusercontent.com/112481574/223585913-4c26cbc8-8e5e-4bc7-9994-5083085667e5.PNG)
 
 - Validation:
-![validation](https://user-images.githubusercontent.com/112481574/223585962-504a3444-af34-4e61-a332-08dca2eb7dbc.PNG)
+![validation](https://user-images.githubusercontent.com/112481574/223587013-e31939ce-b629-46a3-ac0d-908e312d612c.PNG)
 
 - Approve:
 ![approve](https://user-images.githubusercontent.com/112481574/223585992-9f622bdd-6de2-4ce5-adfc-822953e4f67d.PNG)
